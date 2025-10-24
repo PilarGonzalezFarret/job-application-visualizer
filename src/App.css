@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* src/App.css */
+body {
+  margin: 0;
+  background-color: #121212; /* Fondo oscuro profundo */
+  color: #e0e0e0; /* Texto claro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Suaviza texto en modo oscuro */
+* {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
+}

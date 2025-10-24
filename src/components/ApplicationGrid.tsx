@@ -7,14 +7,28 @@ const ApplicationGrid = () => {
   const pending = total - rejected;
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif', maxWidth: '1000px', margin: '0 auto' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        Mi viaje de {total} postulaciones en octubre 2025
+    <div style={{ 
+      padding: '2rem', 
+      maxWidth: '1000px', 
+      margin: '0 auto',
+      textAlign: 'center'
+    }}>
+      <h1 style={{ 
+        fontSize: '2rem', 
+        marginBottom: '1rem',
+        color: '#ffffff',
+        letterSpacing: '1px'
+      }}>
+        Mi viaje de {total} postulaciones desde enero hasta octubre 2025
       </h1>
       
-      <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
-        <strong>{rejected}</strong> rechazadas o ghosteadas • 
-        <strong>{pending}</strong> sin respuesta clara
+      <p style={{ 
+        fontSize: '1.2rem', 
+        marginBottom: '2rem',
+        color: '#cccccc'
+      }}>
+        <strong style={{ color: '#f44336' }}>{rejected}</strong> rechazadas  • 
+        <strong style={{ color: '#4caf50' }}>{pending}</strong> sin respuesta
       </p>
 
       <div
@@ -23,6 +37,7 @@ const ApplicationGrid = () => {
           gridTemplateColumns: `repeat(20, 12px)`,
           gap: '2px',
           justifyContent: 'center',
+          marginBottom: '2rem'
         }}
       >
         {applications.map((status, i) => (
@@ -32,15 +47,24 @@ const ApplicationGrid = () => {
             style={{
               width: '12px',
               height: '12px',
-              backgroundColor: status ? '#ff8a80' : '#81c784',
+              backgroundColor: status ? '#f44336' : '#4caf50',
               borderRadius: '2px',
               cursor: 'help',
+              transition: 'transform 0.2s ease'
             }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.5)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           />
         ))}
       </div>
 
-      <p style={{ marginTop: '2rem', fontStyle: 'italic', color: '#555' }}>
+      <p style={{ 
+        marginTop: '2rem', 
+        fontStyle: 'italic', 
+        color: '#aaaaaa',
+        fontSize: '1rem',
+        lineHeight: '1.6'
+      }}>
         Cada cuadrito es una postulación. El silencio también es una respuesta.  
         Pero sigo adelante.
       </p>
